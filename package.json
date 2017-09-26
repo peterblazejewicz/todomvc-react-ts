@@ -6,7 +6,9 @@
     "classnames": "^2.2.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts-ts": "2.7.0"
+    "react-scripts-ts": "2.7.0",
+    "todomvc-app-css": "^2.1.0",
+    "todomvc-common": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts-ts start",
