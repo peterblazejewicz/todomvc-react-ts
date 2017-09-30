@@ -39,6 +39,7 @@ const mapStateToProps = (state: Todos, ownProps = {}) => ({
   todos: state,
 });
 
+// this is ugly ;O
 const mapDispatchToProps = (dispatch: Dispatch<TodosAction>) => ({
   addTodo: (text: string) => {
     dispatch(addTodo(text));
