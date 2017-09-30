@@ -26,6 +26,13 @@ const todos: (state: Todos, action: TodosAction) => Todos = (
           text: action.text,
         },
       ];
+    case ActionType.COMPLETE_TODO:
+      return state.map(
+        todo =>
+          todo.id === action.id
+            ? { ...todo, completed: !todo.completed }
+            : todo,
+      );
     case ActionType.DELETE_TODO:
       return state.filter(todo => todo.id !== action.id);
     case ActionType.EDIT_TODO:

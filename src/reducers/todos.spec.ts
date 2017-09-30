@@ -90,6 +90,40 @@ describe('todos reducer', () => {
       },
     ]);
   });
+  // complete todo
+  it('should handle COMPLETE_TODO', () => {
+    expect(
+      todos(
+        [
+          {
+            text: 'Run the tests',
+            completed: false,
+            id: 1,
+          },
+          {
+            text: 'Use Redux',
+            completed: false,
+            id: 0,
+          },
+        ],
+        {
+          type: ActionType.COMPLETE_TODO,
+          id: 1,
+        },
+      ),
+    ).toEqual([
+      {
+        text: 'Run the tests',
+        completed: true,
+        id: 1,
+      },
+      {
+        text: 'Use Redux',
+        completed: false,
+        id: 0,
+      },
+    ]);
+  });
   // delete todo
   it('should handle DELETE_TODO', () => {
     expect(
