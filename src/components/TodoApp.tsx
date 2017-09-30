@@ -1,32 +1,10 @@
 import './TodoApp.css';
 
-import React, { KeyboardEvent } from 'react';
-import { RouteComponentProps, RouteProps } from 'react-router-dom';
+import React, { Component, KeyboardEvent } from 'react';
 
 // tslint:disable-next-line:no-any
-class TodoApp extends React.Component<RouteComponentProps<RouteProps>, {}> {
+class TodoApp extends Component<{}, {}> {
   newField: HTMLElement;
-
-  constructor(props: RouteComponentProps<RouteProps>) {
-    super(props);
-    this.props.history.listen((location, action) => {
-      // tslint:disable-next-line:no-console
-      console.log(location);
-      // tslint:disable-next-line:no-console
-      console.log(action);
-    });
-    // tslint:disable-next-line:no-console
-    console.log(this.props.location);
-  }
-
-  componentDidMount() {
-    this.props.history.listen((location, action) => {
-      // tslint:disable-next-line:no-console
-      console.log(location);
-      // tslint:disable-next-line:no-console
-      console.log(action);
-    });
-  }
 
   handleNewTodoKeyDown(event: KeyboardEvent<HTMLInputElement>) {
     // tslint:disable-next-line:no-console
