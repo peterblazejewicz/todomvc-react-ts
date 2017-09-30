@@ -1,11 +1,13 @@
 import * as actions from '../actions';
 
+import { Todos } from '../types/Todos';
 import initialState from '../constants/initialstate';
 import todos from './todos';
 
 describe('todos reducer', () => {
   // default behaviour
   it('should handle initial state', () => {
-    expect(todos(undefined, actions.addTodo('any'))).toEqual(initialState);
+    let t: Todos;
+    expect(todos(t!, actions.addTodo('any'))).toEqual(initialState);
   });
 });
