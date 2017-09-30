@@ -28,6 +28,10 @@ const todos: (state: Todos, action: TodosAction) => Todos = (
       ];
     case ActionType.DELETE_TODO:
       return state.filter(todo => todo.id !== action.id);
+    case ActionType.EDIT_TODO:
+      return state.map(
+        todo => (todo.id === action.id ? { ...todo, text: action.text } : todo),
+      );
     default:
       return state;
   }

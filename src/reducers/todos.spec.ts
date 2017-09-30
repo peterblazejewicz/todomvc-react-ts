@@ -119,4 +119,40 @@ describe('todos reducer', () => {
       },
     ]);
   });
+
+  // edit todo
+  it('should handle EDIT_TODO', () => {
+    expect(
+      todos(
+        [
+          {
+            text: 'Run the tests',
+            completed: false,
+            id: 1,
+          },
+          {
+            text: 'Use Redux',
+            completed: false,
+            id: 0,
+          },
+        ],
+        {
+          type: ActionType.EDIT_TODO,
+          text: 'Fix the tests',
+          id: 1,
+        },
+      ),
+    ).toEqual([
+      {
+        text: 'Fix the tests',
+        completed: false,
+        id: 1,
+      },
+      {
+        text: 'Use Redux',
+        completed: false,
+        id: 0,
+      },
+    ]);
+  });
 });
