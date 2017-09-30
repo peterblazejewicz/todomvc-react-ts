@@ -26,6 +26,8 @@ const todos: (state: Todos, action: TodosAction) => Todos = (
           text: action.text,
         },
       ];
+    case ActionType.CLEAR_COMPLETED:
+      return state.filter(todo => todo.completed === false);
     case ActionType.COMPLETE_ALL:
       const areAllCompleted = state.every(todo => todo.completed);
       return state.map(todo => ({
