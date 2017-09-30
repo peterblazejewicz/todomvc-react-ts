@@ -20,6 +20,7 @@ import {
   editTodo,
 } from '../actions/';
 
+import Header from '../components/Header';
 import { Todos } from '../types/Todos';
 
 interface TodoAppProps {
@@ -33,7 +34,9 @@ interface TodoAppProps {
 }
 
 // tslint:disable-next-line:no-shadowed-variable
-const TodoApp: SFC<TodoAppProps> = ({ todos, addTodo }) => <div />;
+const TodoApp: SFC<TodoAppProps> = ({ todos, addTodo }) => (
+  <Header addTodo={addTodo} />
+);
 
 const mapStateToProps = (state: Todos, ownProps = {}) => ({
   todos: state,

@@ -5,7 +5,7 @@ import 'todomvc-common/base.css';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoApp from './components/TodoApp';
+import TodoApp from './containers/TodoApp';
 import { createStore } from 'redux';
 import reducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
