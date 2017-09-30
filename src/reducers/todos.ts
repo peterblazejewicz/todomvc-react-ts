@@ -1,5 +1,6 @@
+import { ActionType, TodosAction } from '../types/actions';
+
 import { Todos } from './../types/Todos';
-import { TodosAction } from '../types/actions';
 import initialState from '../constants/initialstate';
 
 /**
@@ -12,7 +13,22 @@ const todos: (state: Todos, action: TodosAction) => Todos = (
   state = initialState,
   action,
 ) => {
-  return state;
+  if (!action) {
+    return state;
+  }
+  switch (action.type) {
+    case ActionType.ADD_TODO:
+      return [
+        ...state,
+        {
+          id: state.reduce((idx, todo) => Math.max(todo.id, idx), -1) + 1,
+          completed: false,
+          text: action.text,
+        },
+      ];
+    default:
+      return state;
+  }
 };
 
 export default todos;
