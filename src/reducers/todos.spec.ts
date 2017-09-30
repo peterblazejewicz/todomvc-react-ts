@@ -90,6 +90,71 @@ describe('todos reducer', () => {
       },
     ]);
   });
+  // complete all
+  it('should handle COMPLETE_ALL', () => {
+    expect(
+      todos(
+        [
+          {
+            text: 'Run the tests',
+            completed: true,
+            id: 1,
+          },
+          {
+            text: 'Use Redux',
+            completed: false,
+            id: 0,
+          },
+        ],
+        {
+          type: ActionType.COMPLETE_ALL,
+        },
+      ),
+    ).toEqual([
+      {
+        text: 'Run the tests',
+        completed: true,
+        id: 1,
+      },
+      {
+        text: 'Use Redux',
+        completed: true,
+        id: 0,
+      },
+    ]);
+
+    // Unmark if all todos are currently completed
+    expect(
+      todos(
+        [
+          {
+            text: 'Run the tests',
+            completed: true,
+            id: 1,
+          },
+          {
+            text: 'Use Redux',
+            completed: true,
+            id: 0,
+          },
+        ],
+        {
+          type: ActionType.COMPLETE_ALL,
+        },
+      ),
+    ).toEqual([
+      {
+        text: 'Run the tests',
+        completed: false,
+        id: 1,
+      },
+      {
+        text: 'Use Redux',
+        completed: false,
+        id: 0,
+      },
+    ]);
+  });
   // complete todo
   it('should handle COMPLETE_TODO', () => {
     expect(

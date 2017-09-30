@@ -26,6 +26,12 @@ const todos: (state: Todos, action: TodosAction) => Todos = (
           text: action.text,
         },
       ];
+    case ActionType.COMPLETE_ALL:
+      const areAllCompleted = state.every(todo => todo.completed);
+      return state.map(todo => ({
+        ...todo,
+        completed: !areAllCompleted,
+      }));
     case ActionType.COMPLETE_TODO:
       return state.map(
         todo =>
