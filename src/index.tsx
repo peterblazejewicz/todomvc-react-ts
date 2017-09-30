@@ -2,10 +2,20 @@ import './index.css';
 import 'todomvc-app-css/index.css';
 import 'todomvc-common/base.css';
 
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoApp from './components/TodoApp';
+import { createStore } from 'redux';
+import reducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<TodoApp />, document.getElementById('root') as HTMLElement);
+const store = createStore(reducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <TodoApp />
+  </Provider>,
+  document.getElementById('root') as HTMLElement,
+);
 registerServiceWorker();
